@@ -23,7 +23,7 @@ namespace ProjetoVeiculo
         public string TipoCombustivel;
 
 
-        public virtual void CadastrarVeiculo()
+       public virtual void CadastrarVeiculo()
         {
             Console.Write("Digite a marca do veículo: ");
             Marca = Console.ReadLine();
@@ -44,7 +44,7 @@ namespace ProjetoVeiculo
             CapacidadeTanque = double.Parse(Console.ReadLine());
 
             Console.Write("O veículo é do tipo flex? ");
-            Flex = Console.ReadLine();
+            Flex = Console.ReadLine().ToUpper();
 
             if(Flex == "N")
             {

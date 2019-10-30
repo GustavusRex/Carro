@@ -46,6 +46,14 @@ namespace ProjetoVeiculo
                             Console.ReadKey();
                             break;
                         }
+                    case 4:
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Digirir o carro selecionado\n");
+                            carro.Dirigir();
+                            Console.ReadKey();
+                            break;
+                        }
                 }
 
             } while (opcao != 0);

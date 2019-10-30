@@ -9,3 +9,14 @@ C:\Users\Dev4Jobs5\source\repos\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeicu
 C:\Users\Dev4Jobs5\source\repos\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.AssemblyInfo.cs
 C:\Users\Dev4Jobs5\source\repos\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.dll
 C:\Users\Dev4Jobs5\source\repos\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.pdb
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\bin\Debug\netcoreapp3.0\ProjetoVeiculo.exe
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\bin\Debug\netcoreapp3.0\ProjetoVeiculo.deps.json
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\bin\Debug\netcoreapp3.0\ProjetoVeiculo.runtimeconfig.json
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\bin\Debug\netcoreapp3.0\ProjetoVeiculo.runtimeconfig.dev.json
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\bin\Debug\netcoreapp3.0\ProjetoVeiculo.dll
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\bin\Debug\netcoreapp3.0\ProjetoVeiculo.pdb
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.csprojAssemblyReference.cache
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.AssemblyInfoInputs.cache
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.AssemblyInfo.cs
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.dll
+C:\Users\Dev4Jobs5\Desktop\Carro\Carro\obj\Debug\netcoreapp3.0\ProjetoVeiculo.pdb
