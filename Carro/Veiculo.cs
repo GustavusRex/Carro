@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace ProjetoVeiculo
 {
     abstract class Veiculo
     {
+        Validacao val = new Validacao();
         public string Marca;
 
         public string Modelo;
 
         public string Placa;
 
-        public int Ano;
+        public uint Ano;
 
         public double VelocidadeMaxima;
 
@@ -23,33 +23,34 @@ namespace ProjetoVeiculo
         public string TipoCombustivel;
 
 
-       public virtual void CadastrarVeiculo()
+        public virtual void CadastrarVeiculo()
         {
-            Console.Write("Digite a marca do veículo: ");
-            Marca = Console.ReadLine();
+            Console.Write("\nDigite a marca do veículo: ");
+            Marca = val.ValidarDescricao(Console.ReadLine());
 
             Console.Write("\nDigite o tipo de modelo do veiculo: ");
-            Modelo = Console.ReadLine();
+            Modelo = val.ValidarDescricao(Console.ReadLine());
 
-            Console.Write("Digite a placa do veículo: ");
-            Placa = Console.ReadLine();
+            Console.Write("\nDigite a placa do veículo, EXEMPLO DE PLACA(KUR-2202): ");
+            Placa = val.ValidarPlaca(Console.ReadLine().ToUpper());
 
-            Console.Write("Digite o ano : ");
-            Ano = int.Parse(Console.ReadLine());
+            Console.Write("\nDigite o ano entre 1910 e 2019 : ");
+            Ano = val.ValidarAno(Console.ReadLine());
 
-            Console.Write("Digite a velocidade maxima do veiculo: ");
-            VelocidadeMaxima = double.Parse(Console.ReadLine());
+            Console.Write("\nDigite a velocidade maxima do veiculo: ");
+            VelocidadeMaxima = val.ValidarNumerosDouble(Console.ReadLine());
 
-            Console.Write("Digite a capacidade maxima do tanque de combustivel: ");
-            CapacidadeTanque = double.Parse(Console.ReadLine());
+            Console.Write("\nDigite a capacidade maxima do tanque de combustivel: ");
+            CapacidadeTanque = val.ValidarNumerosDouble(Console.ReadLine());
 
-            Console.Write("O veículo é do tipo flex? ");
-            Flex = Console.ReadLine().ToUpper();
+            Console.WriteLine("\nO veículo é do tipo flex? " +
+                         "Digite S para Sim e N para Não");
+            Flex = val.ValidarSimOuNao(Console.ReadLine().ToUpper());
 
-            if(Flex == "N")
+            if (Flex == "N")
             {
-                Console.Write("Qual o tipo de Combustivel que o veículo utiliza? ");
-                TipoCombustivel = Console.ReadLine();
+                Console.WriteLine("\nQual o tipo de Combustivel (Entre gasolina e alcool) que o veículo utiliza? ");
+                TipoCombustivel = val.ValidarTipoCombustivel(Console.ReadLine().ToLower());
             }
 
         }
