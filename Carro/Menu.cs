@@ -29,6 +29,7 @@ namespace ProjetoVeiculo
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Cadastrar um carro selecionado\n");
                             Console.ResetColor();
+                            carro = new Carro();
                             carro.CadastrarVeiculo(); // Cadastrar um veiculo
                             Console.ReadKey();
                             break;
