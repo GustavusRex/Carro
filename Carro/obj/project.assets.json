@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dev4Jobs5\\Desktop\\Carro\\Carro\\ProjetoVeiculo.csproj",
+      "projectUniqueName": "C:\\Users\\Dev4Jobs5\\Desktop\\Projeto Veiculo - Gustavo\\Carro\\ProjetoVeiculo.csproj",
       "projectName": "ProjetoVeiculo",
-      "projectPath": "C:\\Users\\Dev4Jobs5\\Desktop\\Carro\\Carro\\ProjetoVeiculo.csproj",
+      "projectPath": "C:\\Users\\Dev4Jobs5\\Desktop\\Projeto Veiculo - Gustavo\\Carro\\ProjetoVeiculo.csproj",
       "packagesPath": "C:\\Users\\Dev4Jobs5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dev4Jobs5\\Desktop\\Carro\\Carro\\obj\\",
+      "outputPath": "C:\\Users\\Dev4Jobs5\\Desktop\\Projeto Veiculo - Gustavo\\Carro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dev4Jobs5\\AppData\\Roaming\\NuGet\\NuGet.Config",

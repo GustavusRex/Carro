@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace ProjetoVeiculo
 {
-    class Validacao
+   static class Validacao
     {
-        public string ValidarDescricao(string s) // Metodo para checar as descrições do veículo da por momento da MARCA E MODELO
+        public static string ValidarDescricao(string s) // Metodo para checar as descrições do veículo da por momento da MARCA E MODELO
         {
             while (!Regex.IsMatch(s, @"^[a-z A-ZãàâäèéêëîïôœùûüÿçÀÃÂÄÈÉÊËÎÏÔŒÙÛÜŸÇ0-9]+$"))
             {
@@ -13,13 +13,13 @@ namespace ProjetoVeiculo
                 Console.WriteLine("Descrição inválida, digite novamente");
                 Console.ResetColor();
                 s = Console.ReadLine();
-                
+
 
             }
             return s;
         }
 
-        public string ValidarPlaca(string s) // Metodo para validar uma PLACA padronizada
+        public static string ValidarPlaca(string s) // Metodo para validar uma PLACA padronizada
         {
             while (!Regex.IsMatch(s, @"^[A-Z]{3}\-\d{4}$"))
             {
@@ -31,7 +31,7 @@ namespace ProjetoVeiculo
             return s;
         }
 
-        public uint ValidarAno(string s) // Metodo para validar o ano entre 1910 e 2019
+        public static uint ValidarAno(string s) // Metodo para validar o ano entre 1910 e 2019
         {
             uint n;
             while ((!uint.TryParse(s, out n)) && (n < 1910 || n > 2019))
@@ -44,7 +44,7 @@ namespace ProjetoVeiculo
             return n;
         }
 
-        public double ValidarNumerosDouble(string s) // Metodo validar a maioria dos números double onde não há colocado um limite, mas onde não pode haver negativos
+        public static double ValidarNumerosDouble(string s) // Metodo validar a maioria dos números double onde não há colocado um limite, mas onde não pode haver negativos
         {
             double n;
             while ((!double.TryParse(s, out n)) || (n <= 0.0))
@@ -57,7 +57,7 @@ namespace ProjetoVeiculo
             return n;
         }
 
-        public string ValidarSimOuNao(string s) // Metodo para validar resposta onde só aceita sim ou não (S OU N)
+        public static string ValidarSimOuNao(string s) // Metodo para validar resposta onde só aceita sim ou não (S OU N)
         {
             while (s != "S" && s != "N")
             {
@@ -69,7 +69,7 @@ namespace ProjetoVeiculo
             return s;
         }
 
-        public double ValidarAutonomia(string s) // Validar a autonomia do carro
+        public static double ValidarAutonomia(string s) // Validar a autonomia do carro
         {
             double n;
             while ((!double.TryParse(s, out n)) || (n <= 0 || n > 15))
@@ -82,7 +82,7 @@ namespace ProjetoVeiculo
             return n;
         }
 
-        public string ValidarTipoCombustivel(string s) // Validar o tipo de combustivel entre gasolina e alcool
+        public static string ValidarTipoCombustivel(string s) // Validar o tipo de combustivel entre gasolina e alcool
         {
             while (s != "gasolina" && s != "alcool")
             {
@@ -94,10 +94,10 @@ namespace ProjetoVeiculo
             return s;
         }
 
-        public int ValidarMenu(string s) 
+        public static int Validar3opcoes(string s)
         {
             int n;
-            while ((!int.TryParse(s, out n)) || (n < 0 || n > 4))
+            while ((!int.TryParse(s, out n)) || (n < 1 || n > 3))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Opção invalida");
@@ -109,7 +109,7 @@ namespace ProjetoVeiculo
 
         }
 
-        public double ValidarLitros(string s) // Validar os litros de gasolina sendo maior que 0
+        public static double ValidarLitros(string s) // Validar os litros de gasolina sendo maior que 0
         {
             double n;
             while ((!double.TryParse(s, out n)) || (n < 0))

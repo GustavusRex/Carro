@@ -6,8 +6,8 @@ namespace ProjetoVeiculo
 {
     class Viagem
     {
-        double Distancia;
-        bool Clima;
+        public double Distancia;
+        public int Clima;
 
     }
 }

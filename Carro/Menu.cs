@@ -1,12 +1,10 @@
 ﻿using System;
-
-
 namespace ProjetoVeiculo
 {
     class Menu
     {
-        Validacao val = new Validacao();
-        public int opcao;
+        Viagem viagem = new Viagem();
+        public string opcao;
         public void Menyu(Carro carro)
         {
             do
@@ -19,22 +17,24 @@ namespace ProjetoVeiculo
                 Console.WriteLine("Digite 4 para dirigir");
                 Console.WriteLine("Digite 0 para sair");
                 Console.ResetColor();
-                opcao = val.ValidarMenu(Console.ReadLine());
+                opcao = Console.ReadLine();
 
                 switch (opcao)
                 {
-                    case 1:
+                    case "1":
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Cadastrar um carro selecionado\n");
                             Console.ResetColor();
-                            carro = new Carro();
-                            carro.CadastrarVeiculo(); // Cadastrar um veiculo
+                            carro.CadastrarCarro();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\nCarro Cadastrado!"); Console.ResetColor();
+                            Console.WriteLine("\nAperte qualquer coisa para continuar...");// Cadastrar um veiculo
                             Console.ReadKey();
                             break;
                         }
-                    case 2:
+                    case "2":
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -44,7 +44,7 @@ namespace ProjetoVeiculo
                             Console.ReadKey();
                             break;
                         }
-                    case 3:
+                    case "3":
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -54,19 +54,23 @@ namespace ProjetoVeiculo
                             Console.ReadKey();
                             break;
                         }
-                    case 4:
+                    case "4":
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Digirir o carro selecionado\n");
                             Console.ResetColor();
-                            carro.Dirigir(); // Dirigir o carro / veiculo
+                            carro.Dirigir(viagem); // Dirigir o carro / veiculo
                             Console.ReadKey();
                             break;
                         }
+                    default:
+                        Console.WriteLine("Opção inválida");
+                        Console.ReadKey();
+                        break;
                 }
 
-            } while (opcao != 0);
+            } while (opcao != "0");
         }
     }
 }
