@@ -18,7 +18,6 @@ namespace ProjetoVeiculo
         public double KmPorAlcool;
         public double KmPorGasolinaAtual;
         public double KmPorGasolina;
-        public double Litros;
         public double LitrosGasolina;
         public double LitrosAlcool;
 
