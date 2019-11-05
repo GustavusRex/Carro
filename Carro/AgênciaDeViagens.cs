@@ -4,11 +4,8 @@ using System.Text;
 
 namespace ProjetoVeiculo
 {
-    class Viagem
+    class AgênciaDeViagens
     {
-        public double Distancia;
-        public int ClimaAtual;
-        public int Clima;
-
+        Li
     }
 }

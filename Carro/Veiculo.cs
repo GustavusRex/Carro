@@ -8,12 +8,15 @@ namespace ProjetoVeiculo
         public string Modelo;
         public string Placa;
         public uint Ano;
+        public int EstadoPneuAtual;
         public int EstadoPneu;
         public double VelocidadeMaxima;
         public double CapacidadeTanque;
         public bool Flex;
         public string TipoCombustivel;
+        public double KmPorAlcoolAtual;
         public double KmPorAlcool;
+        public double KmPorGasolinaAtual;
         public double KmPorGasolina;
         public double Litros;
         public double LitrosGasolina;
@@ -33,7 +36,6 @@ namespace ProjetoVeiculo
             }
 
         }
-
         public virtual void AbastecerVeiculoFlex(double litros)
         {
             string opcao;
@@ -88,7 +90,6 @@ namespace ProjetoVeiculo
             }
             
         }
-
         public virtual void DirigirVeiculoPadrão(Viagem viagem, Carro carro, double litrosCombustivelTanque)
         {
 
@@ -97,16 +98,13 @@ namespace ProjetoVeiculo
             Console.WriteLine("Qual a distância da viagem?");
             viagem.Distancia = Validacao.ValidarNumerosDouble(Console.ReadLine());
             double Autonomia;
+            KmPorAlcool = KmPorAlcoolAtual;
+            KmPorGasolina = KmPorGasolinaAtual;
+            EstadoPneu = EstadoPneuAtual;
 
-            KmPorAlcool = (viagem.ClimaRuim ? KmPorAlcool -= KmPorAlcool * 0.135 : KmPorAlcool);
-            KmPorGasolina = (viagem.ClimaRuim ? KmPorGasolina -= KmPorGasolina * 0.12 : KmPorGasolina);
-            Autonomia = KmPorAlcool + KmPorGasolina;
             do
             {
-                if (EstadoPneu == 1)
-                    Autonomia -= Autonomia * 0.0915;
-                else if (EstadoPneu == 2)
-                    Autonomia -= Autonomia * 0.725;
+                Autonomia = Calculo.CalcularAutonomia(viagem,carro,KmPorAlcool, KmPorGasolina);
 
                 litrosCombustivelTanque = LitrosGasolina + LitrosAlcool;
                 if (litrosCombustivelTanque * Autonomia < viagem.Distancia)
@@ -139,7 +137,6 @@ namespace ProjetoVeiculo
             Console.WriteLine($"Viagem Concluída há {litrosCombustivelTanque.ToString("F2")} litros no tanque e o Estado do pneu é {EstadoPneu}");
             Console.WriteLine("\nAperte qualquer coisa para continuar...");
         }
-
         public virtual void DirigirVeiculoFlex(Viagem viagem, Carro carro)
         {
             Console.WriteLine("O clima está ruim?");
@@ -147,21 +144,14 @@ namespace ProjetoVeiculo
             Console.WriteLine("Digite a distância da viagem");
             viagem.Distancia = Validacao.ValidarNumerosDouble(Console.ReadLine());
 
-            KmPorAlcool = (viagem.ClimaRuim ? KmPorAlcool -= KmPorAlcool * 0.135 : KmPorAlcool);
-            KmPorGasolina = (viagem.ClimaRuim ? KmPorGasolina -= KmPorGasolina * 0.12 : KmPorGasolina);
+            KmPorAlcool = KmPorAlcoolAtual;
+            KmPorGasolina = KmPorGasolinaAtual;
+            EstadoPneu = EstadoPneuAtual;
 
             do
             {
-                if (EstadoPneu == 1)
-                {
-                    KmPorAlcool -= KmPorAlcool * 0.0915;
-                    KmPorGasolina -= KmPorGasolina * 0.0915;
-                }
-                else if (EstadoPneu == 2)
-                {
-                    KmPorAlcool -= KmPorAlcool * 0.0725;
-                    KmPorGasolina -= KmPorGasolina * 0.725;
-                }
+                KmPorAlcool = Calculo.CalcularAutonomiaFlexA(viagem, carro);
+                KmPorGasolina = Calculo.CalcularAutonomiaFlexG(viagem, carro);
 
                 while (LitrosAlcool != 0 && viagem.Distancia > 0)
                 {
@@ -207,14 +197,14 @@ namespace ProjetoVeiculo
                     carro.Abastecer();
                 }
 
-            } while (viagem.Distancia > 0);
+            } while (viagem.Distancia > 0); 
 
-        }
+        } 
 
         public virtual void Calibrar()
         {
             Console.WriteLine("Deseja qual opção para calibrar o pneu?");
-            int opcao = Validacao.ValidarPneu(Console.ReadLine());
+            int opcao = Validacao.Validar3opcoes(Console.ReadLine());
 
             if (opcao == 1)
                 EstadoPneu = 1;

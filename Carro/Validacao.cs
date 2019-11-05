@@ -34,7 +34,7 @@ namespace ProjetoVeiculo
         public static uint ValidarAno(string s) // Metodo para validar o ano entre 1910 e 2019
         {
             uint n;
-            while ((!uint.TryParse(s, out n)) && (n < 1910 || n > 2019))
+            while ((!uint.TryParse(s, out n)) || (n < 1910 || n > 2019))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Ano inválido, digite novamente, um ano entre 1910 e 2019");

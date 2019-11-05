@@ -80,12 +80,136 @@ namespace ProjetoVeiculo
             return tanqueflex;
         }
 
-        public static void CalcularAutonomia(Viagem viagem, double tanqueG, double tanqueA)
+        public static double CalcularAutonomia(Viagem viagem, Carro carro, double alcool, double gasolina)
         {
-            
+            double autonomia = 0;
+           if (viagem.Clima == 1)
+            {
+                autonomia = alcool + gasolina;
+                if (carro.EstadoPneu == 2)
+                    autonomia -= autonomia * 0.0725;
+                else if (carro.EstadoPneu == 1)
+                    autonomia -= autonomia * 0.0915;
+            }
+            else if (viagem.Clima == 2)
+            {
+                if (carro.TipoCombustivel == "gasolina")
+                {
+                    gasolina -= gasolina * 0.12;
+                    autonomia = gasolina;
+
+                    if (carro.EstadoPneu == 2)
+                        autonomia -= autonomia * 0.0725;
+                    else if (carro.EstadoPneu == 1)
+                        autonomia -= autonomia * 0.0915;
+                }
+                else if (carro.TipoCombustivel == "alcool")
+                {
+                    alcool -= alcool * 0.12;
+                    alcool -= alcool * 0.30;
+                    autonomia = alcool;
+                    if (carro.EstadoPneu == 2)
+                        autonomia -= autonomia * 0.0725;
+                    else if (carro.EstadoPneu == 1)
+                        autonomia -= autonomia * 0.0915;
+                }
+
+            }
+            else if (viagem.Clima == 3)
+            {
+                if (carro.TipoCombustivel == "gasolina")
+                {
+                    gasolina -= gasolina * 0.19;
+                    autonomia = gasolina;
+
+                    if (carro.EstadoPneu == 2)
+                        autonomia -= autonomia * 0.0725;
+                    else if (carro.EstadoPneu == 1)
+                        autonomia -= autonomia * 0.0915;
+                }
+                else if (carro.TipoCombustivel == "alcool")
+                {
+                    alcool -= alcool * 0.19;
+                    alcool -= alcool * 0.30;
+                    autonomia = alcool;
+                    if (carro.EstadoPneu == 2)
+                        autonomia -= autonomia * 0.0725;
+                    else if (carro.EstadoPneu == 1)
+                        autonomia -= autonomia * 0.0915;
+                }
+
+            }
+            return autonomia;
         }
-        
+
+        public static double CalcularAutonomiaFlexA(Viagem viagem, Carro carro)
+        {
+            double autonomia = 0;
+            if (viagem.Clima == 1)
+            {
+                autonomia = carro.KmPorAlcool;
+                if (carro.EstadoPneu == 2)
+                    autonomia -= autonomia * 0.0725;
+                else if (carro.EstadoPneu == 1)
+                    autonomia -= autonomia * 0.0915;
+            }
+            else if (viagem.Clima == 2)
+            {
+                carro.KmPorGasolina -= carro.KmPorGasolina * 0.12;
+                carro.KmPorAlcool -= carro.KmPorGasolina * 0.30;
+                autonomia = carro.KmPorAlcool;
+                if (carro.EstadoPneu == 2)
+                    autonomia -= autonomia * 0.0725;
+                else if (carro.EstadoPneu == 1)
+                    autonomia -= autonomia * 0.0915;
+            }
+            else if (viagem.Clima == 3)
+            {
+                carro.KmPorGasolina -= carro.KmPorGasolina * 0.19;
+                carro.KmPorAlcool -= carro.KmPorGasolina * 0.30;
+                autonomia = carro.KmPorAlcool;
+                if (carro.EstadoPneu == 2)
+                    autonomia -= autonomia * 0.0725;
+                else if (carro.EstadoPneu == 1)
+                    autonomia -= autonomia * 0.0915;
+            }
+            return autonomia;
+        }
+           
+        public static double CalcularAutonomiaFlexG(Viagem viagem, Carro carro)
+        {
+            double autonomia = 0;
+            if (viagem.Clima == 1)
+            {
+                autonomia = carro.KmPorGasolina;
+                if (carro.EstadoPneu == 2)
+                    autonomia -= autonomia * 0.0725;
+                else if (carro.EstadoPneu == 1)
+                    autonomia -= autonomia * 0.0915;
+            }
+            else if (viagem.Clima == 2)
+            {
+                carro.KmPorGasolina -= carro.KmPorGasolina * 0.12;
+                autonomia = carro.KmPorGasolina;
+                if (carro.EstadoPneu == 2)
+                    autonomia -= autonomia * 0.0725;
+                else if (carro.EstadoPneu == 1)
+                    autonomia -= autonomia * 0.0915;
+            }
+            else if (viagem.Clima == 3)
+            {
+                carro.KmPorGasolina -= carro.KmPorGasolina * 0.19;
+                autonomia = carro.KmPorGasolina;
+                if (carro.EstadoPneu == 2)
+                    autonomia -= autonomia * 0.0725;
+                else if (carro.EstadoPneu == 1)
+                    autonomia -= autonomia * 0.0915;
+            }
+            return autonomia;
+        }
     }
+
+    
 }
 
 

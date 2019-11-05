@@ -19,7 +19,7 @@ namespace ProjetoVeiculo
             Console.Write("\nDigite o ano entre 1910 e 2019: ");
             Ano = Validacao.ValidarAno(Console.ReadLine());
             Console.Write("\nDigite o estado do pneu atual: ");
-            EstadoPneu = Validacao.Validar3opcoes(Console.ReadLine());
+            EstadoPneuAtual = Validacao.Validar3opcoes(Console.ReadLine());
             Console.Write("\nDigite a velocidade maxima do veiculo: ");
             VelocidadeMaxima = Validacao.ValidarNumerosDouble(Console.ReadLine());
             Console.Write("\nDigite a capacidade maxima do tanque de combustivel: ");
@@ -31,9 +31,9 @@ namespace ProjetoVeiculo
             if (Flex)
             {
                 Console.WriteLine("\nDigite a Kilometragem por Litro de Gasolina (Entre 1 até 15): ");
-                KmPorGasolina = Validacao.ValidarAutonomia(Console.ReadLine());
+                KmPorGasolinaAtual = Validacao.ValidarAutonomia(Console.ReadLine());
                 Console.WriteLine("\nDigite a Kilometragem por Litro de Alcool (Entre 1 até 15): ");
-                KmPorAlcool = Validacao.ValidarAutonomia(Console.ReadLine());
+                KmPorAlcoolAtual = Validacao.ValidarAutonomia(Console.ReadLine());
             }
 
             if (Flex == false)
@@ -44,12 +44,12 @@ namespace ProjetoVeiculo
                 if (TipoCombustivel == "gasolina")
                 {
                     Console.WriteLine("Digite a Kilometragem por Litro de Gasolina (Entre 1 até 15): ");
-                    KmPorGasolina = Validacao.ValidarAutonomia(Console.ReadLine());
+                    KmPorGasolinaAtual = Validacao.ValidarAutonomia(Console.ReadLine());
                 }
                 else if (TipoCombustivel == "alcool")
                 {
                     Console.WriteLine("\nDigite a Kilometragem por Litro de Alcool (Entre 1 até 15): ");
-                    KmPorAlcool = Validacao.ValidarAutonomia(Console.ReadLine());
+                    KmPorAlcoolAtual = Validacao.ValidarAutonomia(Console.ReadLine());
 
                 }
             }
@@ -120,7 +120,7 @@ namespace ProjetoVeiculo
             else if (TipoCombustivel == "alcool")
                 DirigirVeiculoPadrão(viagem, this, LitrosAlcool);
             else if (Flex)
-                DirigirVeiculoFlex(viagem, this);
+                DirigirVeiculoFlex(viagem, this); 
         }
 
         public override string ToString()
@@ -143,7 +143,6 @@ namespace ProjetoVeiculo
                     $"e com a autonomia de gasolina {KmPorGasolina} KM/L");
             return sb.ToString();
         }
-
 
     }
 }
