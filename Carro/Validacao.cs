@@ -57,7 +57,20 @@ namespace ProjetoVeiculo
             return n;
         }
 
-        public static string ValidarSimOuNao(string s) // Metodo para validar resposta onde só aceita sim ou não (S OU N)
+        public static int ValidarNumerosINT(string s) // Metodo validar a maioria dos números double onde não há colocado um limite, mas onde não pode haver negativos
+        {
+            int n;
+            while ((!int.TryParse(s, out n)) || (n <= 0.0))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Numero inválido, digite novamente, que não seja negativo ou igual a 0");
+                Console.ResetColor();
+                s = Console.ReadLine();
+            }
+            return n;
+        }
+
+            public static string ValidarSimOuNao(string s) // Metodo para validar resposta onde só aceita sim ou não (S OU N)
         {
             while (s != "S" && s != "N")
             {
@@ -94,7 +107,7 @@ namespace ProjetoVeiculo
             return s;
         }
 
-        public static int Validar3opcoes(string s)
+        public static int Validar3opcoesINT(string s)
         {
             int n;
             while ((!int.TryParse(s, out n)) || (n < 1 || n > 3))
@@ -120,6 +133,18 @@ namespace ProjetoVeiculo
                 s = Console.ReadLine();
             }
             return n;
+        }
+
+        public static string Validar3opcoesString(string s)
+        {
+            while (s != "SOL" && s != "NEVE" && s != "CHUVA")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Opção invalida");
+                Console.ResetColor();
+                s = Console.ReadLine().ToUpper();
+            }
+            return s;
         }
     }
 }

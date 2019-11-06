@@ -80,10 +80,10 @@ namespace ProjetoVeiculo
             return tanqueflex;
         }
 
-        public static double CalcularAutonomia(Viagem viagem, Carro carro, double alcool, double gasolina)
+        public static double CalcularAutonomia(string clima, Carro carro, double alcool, double gasolina)
         {
             double autonomia = 0;
-           if (viagem.Clima == 1)
+           if (clima == "SOL")
             {
                 autonomia = alcool + gasolina;
                 if (carro.EstadoPneu == 2)
@@ -91,7 +91,7 @@ namespace ProjetoVeiculo
                 else if (carro.EstadoPneu == 1)
                     autonomia -= autonomia * 0.0915;
             }
-            else if (viagem.Clima == 2)
+            else if (clima == "CHUVA")
             {
                 if (carro.TipoCombustivel == "gasolina")
                 {
@@ -115,7 +115,7 @@ namespace ProjetoVeiculo
                 }
 
             }
-            else if (viagem.Clima == 3)
+            else if (clima == "NEVE")
             {
                 if (carro.TipoCombustivel == "gasolina")
                 {
@@ -208,9 +208,4 @@ namespace ProjetoVeiculo
             return autonomia;
         }
     }
-
-    
 }
-
-
-

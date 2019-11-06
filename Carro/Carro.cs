@@ -1,60 +1,10 @@
 ﻿using System;
 using System.Text;
-
 namespace ProjetoVeiculo
 {
-    class Carro : Veiculo
+    public class Carro : Veiculo
     {
-       
-
-        public void CadastrarCarro()
-        {
-            Console.WriteLine("Cadastro de Carro Selecionado");
-            Console.Write("\nDigite a marca do veículo: ");
-            Marca = Validacao.ValidarDescricao(Console.ReadLine());
-            Console.Write("\nDigite o tipo de modelo do veiculo: ");
-            Modelo = Validacao.ValidarDescricao(Console.ReadLine());
-            Console.Write("\nDigite a placa do veículo, EXEMPLO DE PLACA(KUR-2202): ");
-            Placa = Validacao.ValidarPlaca(Console.ReadLine().ToUpper());
-            Console.Write("\nDigite o ano entre 1910 e 2019: ");
-            Ano = Validacao.ValidarAno(Console.ReadLine());
-            Console.Write("\nDigite o estado do pneu atual: ");
-            EstadoPneuAtual = Validacao.Validar3opcoes(Console.ReadLine());
-            Console.Write("\nDigite a velocidade maxima do veiculo: ");
-            VelocidadeMaxima = Validacao.ValidarNumerosDouble(Console.ReadLine());
-            Console.Write("\nDigite a capacidade maxima do tanque de combustivel: ");
-            CapacidadeTanque = Validacao.ValidarNumerosDouble(Console.ReadLine());
-            Console.WriteLine("\nO veículo é do tipo flex? " +
-                         "Digite S para Sim e N para Não");
-            Flex = Validacao.ValidarSimOuNao(Console.ReadLine().ToUpper()) == "S" ? true : false;
-
-            if (Flex)
-            {
-                Console.WriteLine("\nDigite a Kilometragem por Litro de Gasolina (Entre 1 até 15): ");
-                KmPorGasolinaAtual = Validacao.ValidarAutonomia(Console.ReadLine());
-                Console.WriteLine("\nDigite a Kilometragem por Litro de Alcool (Entre 1 até 15): ");
-                KmPorAlcoolAtual = Validacao.ValidarAutonomia(Console.ReadLine());
-            }
-
-            if (Flex == false)
-            {
-                Console.WriteLine("\nQual o tipo de Combustivel (Entre gasolina e alcool) que o veículo utiliza? ");
-                TipoCombustivel = Validacao.ValidarTipoCombustivel(Console.ReadLine().ToLower());
-
-                if (TipoCombustivel == "gasolina")
-                {
-                    Console.WriteLine("Digite a Kilometragem por Litro de Gasolina (Entre 1 até 15): ");
-                    KmPorGasolinaAtual = Validacao.ValidarAutonomia(Console.ReadLine());
-                }
-                else if (TipoCombustivel == "alcool")
-                {
-                    Console.WriteLine("\nDigite a Kilometragem por Litro de Alcool (Entre 1 até 15): ");
-                    KmPorAlcoolAtual = Validacao.ValidarAutonomia(Console.ReadLine());
-
-                }
-            }
-        }
-
+        public double Litros;
         public void Abastecer()
         {
             string opcao;

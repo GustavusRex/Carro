@@ -4,11 +4,16 @@ using System.Text;
 
 namespace ProjetoVeiculo
 {
-    class Viagem
+    public class Viagem:Base
     {
         public double Distancia;
-        public int ClimaAtual;
-        public int Clima;
+        public string ClimaAtual;
+
+
+        public override string ToString()
+        {
+            return $"A Distância da viagem {Distancia}, com o clima {ClimaAtual}";
+        }
 
     }
 }

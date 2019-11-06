@@ -6,9 +6,10 @@ namespace ProjetoVeiculo
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            Carro carro = new Carro();
-            menu.Menyu(carro);
+            AgênciaDeViagens agênciaDeViagens = new AgênciaDeViagens();
+            MenuGlobal menu = new MenuGlobal();
+            menu.MenuInicial(agênciaDeViagens);
+
         }
     }
 }

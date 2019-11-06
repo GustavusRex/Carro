@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ProjetoVeiculo
 {
-    abstract class Veiculo
+   public abstract class Veiculo : Base
     {
 
         public string Marca;
@@ -20,7 +20,6 @@ namespace ProjetoVeiculo
         public double KmPorGasolina;
         public double LitrosGasolina;
         public double LitrosAlcool;
-
         public virtual void AbastecerVeiculoPadrão() 
         {
             if (TipoCombustivel == "gasolina")
@@ -92,18 +91,17 @@ namespace ProjetoVeiculo
         public virtual void DirigirVeiculoPadrão(Viagem viagem, Carro carro, double litrosCombustivelTanque)
         {
 
-            Console.WriteLine("O clima qual o tipo de clima [1] = Sol [2] = Chuva [3] = Neve");
-            viagem.Clima = Validacao.Validar3opcoes(Console.ReadLine());
-            Console.WriteLine("Qual a distância da viagem?");
-            viagem.Distancia = Validacao.ValidarNumerosDouble(Console.ReadLine());
             double Autonomia;
+            string Clima;
             KmPorAlcool = KmPorAlcoolAtual;
             KmPorGasolina = KmPorGasolinaAtual;
             EstadoPneu = EstadoPneuAtual;
+            Clima = viagem.ClimaAtual;
+
 
             do
             {
-                Autonomia = Calculo.CalcularAutonomia(viagem,carro,KmPorAlcool, KmPorGasolina);
+                Autonomia = Calculo.CalcularAutonomia(Clima,carro,KmPorAlcool, KmPorGasolina);
 
                 litrosCombustivelTanque = LitrosGasolina + LitrosAlcool;
                 if (litrosCombustivelTanque * Autonomia < viagem.Distancia)
@@ -139,7 +137,7 @@ namespace ProjetoVeiculo
         public virtual void DirigirVeiculoFlex(Viagem viagem, Carro carro)
         {
             Console.WriteLine("O clima está ruim?");
-            viagem.Clima = Validacao.Validar3opcoes(Console.ReadLine());
+            viagem.ClimaAtual = Validacao.Validar3opcoesString(Console.ReadLine());
             Console.WriteLine("Digite a distância da viagem");
             viagem.Distancia = Validacao.ValidarNumerosDouble(Console.ReadLine());
 
