@@ -80,6 +80,18 @@ namespace ProjetoVeiculo
             return tanqueflex;
         }
 
+        public static double EncherTanqueFlex(double capacidadeTanque, double tanqueG, double tanqueA)
+        {
+            double tanqueCheio;
+
+            tanqueG += (capacidadeTanque - tanqueA - tanqueG);
+            tanqueCheio = tanqueG;
+            Console.WriteLine("O Tanque está cheio");
+            Console.ResetColor();
+            Console.WriteLine("\nAperte qualquer coisa para continuar...");
+            return tanqueCheio;
+        }
+
         public static double CalcularAutonomia(string clima, Carro carro, double alcool, double gasolina)
         {
             double autonomia = 0;

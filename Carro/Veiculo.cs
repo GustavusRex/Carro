@@ -34,7 +34,7 @@ namespace ProjetoVeiculo
             }
 
         }
-        public virtual void AbastecerVeiculoFlex(double litros)
+        public virtual void AbastecerVeiculoFlex()
         {
             string opcao;
 
@@ -53,22 +53,10 @@ namespace ProjetoVeiculo
                     Console.WriteLine("\nQuer encher o tanque de alcool ou gasolina?");
                     opcao = Validacao.ValidarTipoCombustivel(Console.ReadLine().ToLower()); // Opção para escolher caso queira abastecer ou encher o tanque 
                     if (opcao == "alcool")
-                    {
-                        LitrosAlcool += (CapacidadeTanque - LitrosAlcool - LitrosGasolina);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("O Tanque está cheio");
-                        Console.ResetColor();
-                        Console.WriteLine("\nAperte qualquer coisa para continuar...");
-                    }
+                        LitrosAlcool += Calculo.EncherTanqueFlex(CapacidadeTanque, LitrosAlcool, LitrosGasolina);
 
                     else if (opcao == "gasolina")
-                    {
-                        LitrosGasolina += (CapacidadeTanque - LitrosAlcool - LitrosGasolina);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("O Tanque está cheio");
-                        Console.ResetColor();
-                        Console.WriteLine("\nAperte qualquer coisa para continuar...");
-                    }
+                        LitrosGasolina += Calculo.EncherTanqueFlex(CapacidadeTanque, LitrosGasolina, LitrosAlcool);
                 }
                 else
                 {
@@ -201,7 +189,7 @@ namespace ProjetoVeiculo
         public virtual void Calibrar()
         {
             Console.WriteLine("Deseja qual opção para calibrar o pneu?");
-            int opcao = Validacao.Validar3opcoes(Console.ReadLine());
+            int opcao = Validacao.Validar3opcoesINT(Console.ReadLine());
 
             if (opcao == 1)
                 EstadoPneu = 1;
@@ -209,7 +197,6 @@ namespace ProjetoVeiculo
                 EstadoPneu = 2;
             else
                 EstadoPneu = 3;
-
         }
     }
 }
